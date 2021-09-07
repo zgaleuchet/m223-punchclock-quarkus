@@ -18,7 +18,7 @@ import org.eclipse.microprofile.jwt.JsonWebToken;
 
 @Path("/secured")
 @RequestScoped 
-public class Secured {
+public class SecuredController {
     @Inject
     JsonWebToken jwt; 
 
