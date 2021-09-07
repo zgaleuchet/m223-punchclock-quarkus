@@ -15,7 +15,10 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
 
 import org.eclipse.microprofile.jwt.JsonWebToken;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
+
+@Tag(name = "Secured", description = "An example of a secured endpoint")
 @Path("/secured")
 @RequestScoped 
 public class SecuredController {

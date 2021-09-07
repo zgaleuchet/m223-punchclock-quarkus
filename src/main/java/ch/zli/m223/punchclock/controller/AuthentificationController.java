@@ -12,15 +12,17 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.jwt.Claims;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import ch.zli.m223.punchclock.ViewModel.LoginResultViewModel;
 import ch.zli.m223.punchclock.ViewModel.LoginViewModel;
 import io.smallrye.jwt.build.Jwt;
 
 /*
-* A sample controller for creating JWT Tokens
 * Do not use in productive environments!
 */
+
+@Tag(name = "Authorization", description = "Sample to manage Authorization")
 @Path("/auth")
 public class AuthentificationController {
     
@@ -39,7 +41,7 @@ public class AuthentificationController {
             .sign();
             return new LoginResultViewModel(token);
         }
-        throw new NotAuthorizedException("User ["+loginViewModel.getUsername()+"] with password ["+loginViewModel.getPassword()+"] not known");
+        throw new NotAuthorizedException("User ["+loginViewModel.getUsername()+"] not known");
     }
 }
 
