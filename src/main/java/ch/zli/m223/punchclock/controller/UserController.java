@@ -47,4 +47,11 @@ public class UserController {
     public User getSingleEntry(@PathParam("id") Long id) {
         return userService.getUserById(id);
     }
+
+    @GET
+    @Path("/username/{username}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<User> getUserByUsername(@PathParam("username") String username) {
+        return userService.getUserByUsername(username);
+    }
 }

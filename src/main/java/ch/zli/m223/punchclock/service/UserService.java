@@ -22,8 +22,6 @@ public class UserService {
     }
 
     public List<User> getUserByUsername(String username){
-        System.out.println("getUserByUsername");
-        System.out.println(username);
         var query = entityManager.createQuery("FROM User WHERE username LIKE :username").setParameter("username", username);
         return query.getResultList();
     }
