@@ -1,21 +1,44 @@
-# M223 Punchclock
+#PunchClock
 
-Folgende Schritte sind notwendig um die Applikation zu erstellen und zu starten: 
-1. Stellen Sie sicher, dass OpenJDK 11 oder höher installiert und JAVA_HOME korrekt gesetzt ist.  
-2. Installieren Sie (falls noch nicht vorhanden) Apache Maven 3.8.1 oder höher
-3. Wechseln Sie auf der Kommandozeile in den Ordner dieser Applikation. 
-`cd m223-punchclock-quarkus/`
-4. Starten Sie die Applikation mit 
+###Projekt laufen lassen:
+Backend:
 ```shell script
 ./mvnw compile quarkus:dev
 ```
 
-Folgende Dienste stehen während der Ausführung im Profil dev zur Verfügung:
+Frontend:
+````shell script
+ng serve
+````
 
-Swagger API: http://localhost:8080/q/swagger-ui/
+###Github Repository
+Backend:
+https://github.com/zgaleuchet/m223-punchclock-quarkus.git
 
-H2 Console: http://localhost:8080/h2/ 
-Datenquelle: jdbc:h2:mem:punchclock
-Benutzername: zli
-Passwort: zli
+Frontend:
+https://github.com/zgaleuchet/punchClock.git
 
+###Default Daten
+Es wurden default Kategorien, Projekte, Userrollen, User und Entries erstellt.
+
+####User: 
+username: testUser
+
+passwort: secret
+
+####Admin:
+username: zgaleuchet
+
+passwort: passwort
+
+###JPQL Query
+Im Tab User kann man unten nach einem username suchen
+
+###Abweichung zur planung
+1. Ich habe user-forms und user-overview, wie auch entry-forms und entry-overview 
+zusammengefügt, da es in der Realisierung einfacher war. 
+2. Im frontend kamen zu den Components und den Models noch die Services dazu.
+3. Projekte konnte ich nicht mehr richtig hinzufügen, da die Zeit zu knapp war.
+4. Ich habe mit dem Login begonne konnte es aber nicht fertig machen, da die Zeit zu knapp war.
+Ich bekomme ein JWT Token vom backend, wenn ich mich mit einem richtigen Login einlogge. 
+Da das Login nicht richtig funktioniert, sind alle Funktionen für alle User zugänglich.
