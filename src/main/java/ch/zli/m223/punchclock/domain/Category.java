@@ -14,7 +14,7 @@ public class Category {
     private Long id;
 
     @Column(nullable = false)
-    private String titel;
+    private String title;
 
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     @JsonIgnore
@@ -32,12 +32,12 @@ public class Category {
         this.id = id;
     }
 
-    public String getTitel() {
-        return titel;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitel(String titel) {
-        this.titel = titel;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public List<Entry> getEntries() {

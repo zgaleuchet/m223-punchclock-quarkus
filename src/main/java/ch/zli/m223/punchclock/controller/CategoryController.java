@@ -1,12 +1,12 @@
 package ch.zli.m223.punchclock.controller;
 
 import ch.zli.m223.punchclock.domain.Category;
+import ch.zli.m223.punchclock.domain.Entry;
 import ch.zli.m223.punchclock.service.CategoryService;
+import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -19,6 +19,34 @@ public class CategoryController {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Category> list() {
         return categoryService.findAll();
+    }
+
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Category getSingleCategory(@PathParam("id") Long id) {
+        return categoryService.getCategoryById(id);
+    }
+
+
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Category createCategory(Category category) {
+        return categoryService.createCategory(category);
+    }
+
+    @DELETE
+    @Path("/{id}")
+    public void deleteCategory(@PathParam("id") Long id){
+        categoryService.deleteCategory(id);
+    }
+
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Category update(Category category){
+        return categoryService.updateCategory(category);
     }
 
 }
