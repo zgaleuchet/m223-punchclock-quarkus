@@ -51,8 +51,10 @@ public class EntryController {
     }
 
     @PUT
-    public void update(Entry entry){
-        entryService.updateEntity(entry);
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Entry update(Entry entry){
+        return entryService.updateEntity(entry);
     }
 
 }
