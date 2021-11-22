@@ -2,6 +2,7 @@ package ch.zli.m223.punchclock.controller;
 
 import ch.zli.m223.punchclock.domain.Userrole;
 import ch.zli.m223.punchclock.service.UserroleService;
+import org.eclipse.microprofile.openapi.annotations.Operation;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -18,6 +19,7 @@ public class UserroleController {
 
     @GET()
     @Produces(MediaType.APPLICATION_JSON)
+    @Operation(description = "Get all Userroles")
     public List<Userrole> userroles() {
         return userroleService.findAll();
     }

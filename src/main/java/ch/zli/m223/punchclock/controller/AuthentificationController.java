@@ -3,6 +3,7 @@ package ch.zli.m223.punchclock.controller;
 import ch.zli.m223.punchclock.domain.User;
 import ch.zli.m223.punchclock.service.AuthenticationService;
 import ch.zli.m223.punchclock.service.UserService;
+import org.eclipse.microprofile.openapi.annotations.Operation;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -21,6 +22,7 @@ public class AuthentificationController {
     @POST
     @Path("/login/{username}/{password}")
     @Produces(MediaType.TEXT_PLAIN)
+    @Operation(description = "Login request: Get JWT Token")
     public String login(@PathParam("username") String username, @PathParam("password") String password) {
         List<User> users = userService.getUserByUsername(username);
         if (authenticationService.checkIfUserExists(users.get(0))) {
