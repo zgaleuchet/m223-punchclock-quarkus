@@ -1,5 +1,6 @@
 package ch.zli.m223.punchclock.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -23,10 +24,13 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-
-    @OneToMany(mappedBy = "user")
-    @JsonManagedReference(value = "user-entry")
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Entry> entries;
+
+    @ManyToOne
+    @JoinColumn(name = "userrole_id", nullable = false)
+    private Userrole userrole;
 
     public Long getId() {
         return id;
@@ -75,5 +79,13 @@ public class User {
 
     public void setEntries(List<Entry> entries) {
         this.entries = entries;
+    }
+
+    public Userrole getUserrole() {
+        return userrole;
+    }
+
+    public void setUserrole(Userrole userrole) {
+        this.userrole = userrole;
     }
 }
