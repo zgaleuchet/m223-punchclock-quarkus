@@ -1,8 +1,8 @@
-INSERT INTO CATEGORY(titel) VALUES ('Administratives');
-INSERT INTO CATEGORY(titel) VALUES ('Planung');
-INSERT INTO CATEGORY(titel) VALUES ('Implementierung');
-INSERT INTO CATEGORY(titel) VALUES ('Testen');
-INSERT INTO CATEGORY(titel) VALUES ('Finanzen');
+INSERT INTO CATEGORY(title) VALUES ('Administratives');
+INSERT INTO CATEGORY(title) VALUES ('Planung');
+INSERT INTO CATEGORY(title) VALUES ('Implementierung');
+INSERT INTO CATEGORY(title) VALUES ('Testen');
+INSERT INTO CATEGORY(title) VALUES ('Finanzen');
 
 INSERT INTO PROJECT(titel, category_id) VALUES ('225', 1);
 INSERT INTO PROJECT(titel, category_id) VALUES ('783', 1);
